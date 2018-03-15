@@ -115,7 +115,7 @@ while($row1 = mysql_fetch_array($result1))
 	$size=$row1['size'];
 	$quantity=$row1['quantity'];
 	$counter ++;
-	$total = $total + $price;
+	$total = $total + $price * $quantity;
 	$url = "quantity.php?name=". $i_name ."&size=". $size ." ";
 	$url1 = "qmin.php?name=". $i_name ."&size=". $size ." ";
 ?>		<tr>
@@ -156,32 +156,28 @@ while($row1 = mysql_fetch_array($result1))
 		
 		
 		<tr>
-		<td>CGST(9%)</td>
+		<td>CGST(2.5%)</td>
 		<td>-</td>
 		<td><font color=>Rs. 
-		<?php $cgst = 0.09* $total; 
+		<?php $cgst = 0.025* $total; 
 		echo "$cgst" ?></td>
 		</tr>
 		
 		<tr>
-		<td>SGST(9%)</td>
+		<td>SGST(2.5%)</td>
 		<td>-</td>
 		<td><font color=>Rs. 
-		<?php $sgst = 0.09* $total; 
+		<?php $sgst = 0.025* $total; 
 		echo "$sgst" ?>
 		</td>
 		</tr>
 		
-		<tr>
-		<td>DELIEVRY</td>
-		<td>-</td>
-		<td><font color=>Rs. 50 </td>
-		</tr>
+		
 		</table>
 		</p>
 		<p class = "s"></p>
 		
-		<p align = "right" style = "margin-right:9px">Total - <?php $total1 = $total + $cgst + $sgst + 50; 
+		<p align = "right" style = "margin-right:9px">Total - <?php $total1 = $total + $cgst + $sgst; 
 		echo "$total1"?>
 		
 		

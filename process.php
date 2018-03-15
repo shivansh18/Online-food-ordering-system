@@ -31,17 +31,20 @@ if (!$con)
 mysql_select_db("restraunt", $con);
 
 $in = $_POST["in"];
-$ip = $_POST["ip"];
+$ip1 = $_POST["ip1"];
+$ip2 = $_POST["ip2"];
+$ip3 = $_POST["ip3"];
+
 if($_GET["dd"] == 1)
 {
-	$sql1 = "SELECT uname,item,size FROM `order` WHERE uname = '". $un ."' and item = '". $in ."' and size='R' ";
+	$sql1 = "SELECT uname,item,size FROM `order` WHERE uname = '". $un ."' and item = '". $in ."' and size='R' and status='0' " ;
  $result1=mysql_query($sql1,$con);
  if($result1 === FALSE) { 
     echo mysql_error();
 }
 if (mysql_num_rows($result1) > 0) {
 
-	$sql2 = "UPDATE `order` SET `quantity`=`quantity`+1 WHERE uname = '". $un ."' and item = '". $in ."' and size='R' ";
+	$sql2 = "UPDATE `order` SET `quantity`=`quantity`+1 WHERE uname = '". $un ."' and item = '". $in ."' and size='R' and status='0' ";
 	 $result5=mysql_query($sql2,$con);
 	 if($result5 === FALSE) { 
 		echo mysql_error();
@@ -52,7 +55,7 @@ header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 }
 else{
-	$sql3= "INSERT INTO `order`(`uname`, `item`, `r_id`, `price`, `size`, `quantity`, `status`) VALUES ('". $un ."','". $in ."','". $rd ."','". $ip ."','R',1,0)";
+	$sql3= "INSERT INTO `order`(`uname`, `item`, `r_id`, `price`, `size`, `quantity`, `status`) VALUES ('". $un ."','". $in ."','". $rd ."','". $ip1 ."','R',1,0)";
 	if (!mysql_query($sql3,$con))
   {
   die('Error: ' . mysql_error());
@@ -91,7 +94,7 @@ if (mysql_num_rows($result1) > 0) {
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 else{
-	$sql3= "INSERT INTO `order`(`uname`, `item`, `r_id`, `price`, `size`, `quantity`, `status`) VALUES ('". $un ."','". $in ."','". $rd ."','". $ip ."','M',1,0)";
+	$sql3= "INSERT INTO `order`(`uname`, `item`, `r_id`, `price`, `size`, `quantity`, `status`) VALUES ('". $un ."','". $in ."','". $rd ."','". $ip2 ."','M',1,0)";
 	if (!mysql_query($sql3,$con))
   {
   die('Error: ' . mysql_error());
@@ -122,7 +125,7 @@ if (mysql_num_rows($result1) > 0) {
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 else{
-	$sql3= "INSERT INTO `order`(`uname`, `item`, `r_id`, `price`, `size`, `quantity`, `status`) VALUES ('". $un ."','". $in ."','". $rd ."','". $ip ."','L',1,0)";
+	$sql3= "INSERT INTO `order`(`uname`, `item`, `r_id`, `price`, `size`, `quantity`, `status`) VALUES ('". $un ."','". $in ."','". $rd ."','". $ip3 ."','L',1,0)";
 	if (!mysql_query($sql3,$con))
   {
   die('Error: ' . mysql_error());

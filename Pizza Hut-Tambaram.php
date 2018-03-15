@@ -101,6 +101,7 @@ if (!mysql_query($sql,$con))
   {
   die('Error: ' . mysql_error());
   }
+   $id=mysql_query($sql1,$con);
   $counter=0;
  $result1=mysql_query($sql1,$con);
  if($result1 === FALSE) { 

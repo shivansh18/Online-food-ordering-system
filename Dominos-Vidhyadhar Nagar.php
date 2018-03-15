@@ -97,10 +97,11 @@ $fname = $cname[0];
 <?php
 
 $sql1="SELECT * FROM `dominos-Vidhyadhar Nagar` WHERE 1";
-if (!mysql_query($sql,$con))
+if (!mysql_query($sql1,$con))
   {
   die('Error: ' . mysql_error());
   }
+   $id=mysql_query($sql1,$con);
   $counter=0;
  $result1=mysql_query($sql1,$con);
  if($result1 === FALSE) { 
@@ -126,7 +127,7 @@ while($row1 = mysql_fetch_array($result1))
 		<input type="hidden" name="ip" value="<?PHP echo("$price_r") ?>">
 		
 		<td align="center" class="atc1"><input type="image" formaction="process.php?dd=1&id=<?PHP echo "$id" ?>" class="atc" src = "images/atc.png"></td>
-		</tr`>
+		</tr>
 		<tr>
 		
 		

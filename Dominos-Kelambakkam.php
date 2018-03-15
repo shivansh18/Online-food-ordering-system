@@ -95,17 +95,14 @@ $fname = $cname[0];
 		<table class="menu2">
 	
 <?php
-$sql23="SELECT r_id FROM `restraunt` WHERE r_name = 'dominos-kelambakkam'";
-if (!mysql_query($sq23,$con))
-  {
-  die('Error: ' . mysql_error());
-  }
-  $id=mysql_query($sq23,$con);
+
+ 
 $sql1="SELECT * FROM `dominos-kelambakkam` WHERE 1";
 if (!mysql_query($sql,$con))
   {
   die('Error: ' . mysql_error());
   }
+   $id=mysql_query($sql1,$con);
   $counter=0;
  $result1=mysql_query($sql1,$con);
  if($result1 === FALSE) { 
@@ -128,7 +125,7 @@ while($row1 = mysql_fetch_array($result1))
 		<td class="price1">Regular<span class="price1text">Base:10"<br>serves 1</span></td>
 		
 		<td class="price2"><p><?php echo "$price_r"?></p></td>
-		<input type="hidden" name="ip" value="<?PHP echo("$price_r") ?>">
+		<input type="hidden" name="ip1" value="<?PHP echo("$price_r") ?>">
 		
 		<td align="center" class="atc1"><input type="image" formaction="process.php?dd=1&id=<?PHP echo "$id" ?>" class="atc" src = "images/atc.png"></td>
 		</tr>
@@ -137,12 +134,14 @@ while($row1 = mysql_fetch_array($result1))
 		
 		<td class="price1">Medium<span class="price1text">Base:15"<br>serves 2</span></td>
 		<td class="price2"><?php echo "$price_m"?></td>
+		<input type="hidden" name="ip2" value="<?PHP echo("$price_m") ?>">
 		<td align="center" class="atc1"><input type="image" formaction="process.php?dd=2&id=<?PHP echo "$id" ?>" class="atc" src = "images/atc.png"</td>
 		</tr>
 		<tr>
 		
 		<td class="price1">Large<span class="price1text">Base:18"<br>serves 3</span></td>
 		<td class="price2"><?php echo "$price_l"?></td>
+		<input type="hidden" name="ip3" value="<?PHP echo("$price_l") ?>">
 		<td align="center" class="atc1"><input type="image" formaction="process.php?dd=3&id=<?PHP echo "$id" ?>" class="atc" src = "images/atc.png"</td>
 		</tr>
 		</form>

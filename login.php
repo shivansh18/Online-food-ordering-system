@@ -45,7 +45,7 @@ if((strcmp($unam,$uname)==0)&&(strcmp($password,$pass)==0))
 	}
 else
 {
-	 header("Location: login1.php?success=1");
+	 header("Location: login.html");
 }
 }
 }
